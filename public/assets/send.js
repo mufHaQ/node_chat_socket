@@ -6,12 +6,6 @@ const socket = io();
 
 document.addEventListener('keyup', function (e) {
     if (e.key === 'Enter') {
-        // btn_send.addEventListener('click', () => {
-        //     if (input_msg.value) {
-        //         socket.emit('chat message', input_msg.value)
-        //         input_msg.value = ''
-        //     }
-        // })
         btn_send.click()
     }
 })

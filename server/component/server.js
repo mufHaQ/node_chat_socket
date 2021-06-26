@@ -18,7 +18,7 @@ class myServer {
     }
     
     statics() {
-        this.app.use(this.express.static(__dirname + '/../public/assets'))
+        this.app.use(this.express.static(__dirname + '/../../public/assets'))
     }
 
     page(page) {
@@ -26,21 +26,4 @@ class myServer {
     }
 }
 
-class Socket {
-    constructor(app, port) {
-        this.app = app
-        this.port = port
-    }
-
-    ls() {
-        this.app.listen(this.port, () => {
-            console.log(`Listening server @ http://localhost:${this.port}`)
-        })
-    }
-
-}
-
-module.exports = {
-    myServer,
-    Socket
-}
+module.exports = myServer
