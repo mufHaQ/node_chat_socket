@@ -24,16 +24,25 @@ imprt.app.get('/chat', (req, res) => {
 })
 
 // Socket
+let pCount = 0
 imprt.io.on('connection', (socket) => {
+    pCount++
+    
     console.log('a user connected');
+    
+    imprt.io.emit('cht_msg_count', pCount)
+
     socket.on('disconnect', () => {
-        console.log('user disconnected');
+        pCount--
+        imprt.io.emit('cht_msg_count', pCount)
     });
 
-    socket.on('chat message', (msg) => {
+    socket.on('cht_msg', (msg) => {
         console.log('message: ' + msg);
-        imprt.io.emit('chat message', msg);
+        imprt.io.emit('cht_msg', msg);
     });
+
+    console.log(`${Object.keys(imprt.io.sockets.sockets).length}`)
 });
 
 

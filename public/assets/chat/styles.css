@@ -1,10 +1,12 @@
 /* CSS */
 
+/* All */
 * {
     padding: 0;
     margin: 0;
 }
 
+/* Body */
 body {
     width: 100%;
     height: 100vh;
@@ -12,6 +14,7 @@ body {
     place-items: center;
 }
 
+/* Card */
 .card {
     width: 900px;
     height: 600px;
@@ -26,8 +29,10 @@ body {
     width: 30%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    position: relative;
 }
 
+/* Card Left Online */
 .card .left .online {
     height: 40px;
     color: white;
@@ -40,7 +45,27 @@ body {
     place-items: center;
 }
 
-/* Right */
+/* Card Left Logout */
+.card .left .logout {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(104, 0, 104);
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 2px 7px;
+    transition: .5s;
+}
+
+/* Card Left Logout Hover */
+.card .left .logout:hover {
+    background-color: white;
+    color: rgb(104, 0, 104);
+}
+
+/* Card Right */
 .card .right {
     width: 70%;
     padding: 5px;
@@ -48,33 +73,46 @@ body {
     flex-direction: column;
 }
 
-/* Top */
+/* Card Right Top */
 .card .right .top {
     height: 90%;
 }
 
+/* Card Right Top MSG */
 .card .right .top .msg {
     height: 100%;
     width: 100%;
+    overflow: auto;
 }
 
-/* Bottom */
+/* Card Right Top MSG Chat */
+.card .right .top .msg .chat {
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+}
+
+/* Card Right Bottom */
 .card .right .bottom {
     height: 10%;
     box-sizing: border-box;
     padding: 10px;
 }
 
+/* Card Right Bottom Input */
 .card .right .bottom .input {
     height: 100%;
     display: flex;
     gap: 5px;
 }
 
+/* Card Right Bottom Input Left-Input */
 .card .right .bottom .input .left-input {
     width: 80%;
 }
 
+/* Card Right Bottom Input Left-Input Input-MSG */
 .card .right .bottom .input .left-input .input-msg {
     height: 100%;
     width: 100%;
@@ -83,10 +121,12 @@ body {
     box-sizing: border-box;
 }
 
+/* Card Right Bottom Input Right-Input */
 .card .right .bottom .input .right-input {
     width: 20%;
 }
 
+/* Card Right Bottom Input Left-Input Btn-Send */
 .card .right .bottom .input .right-input .btn-send {
     font-size: 30px;
     width: 100%;
