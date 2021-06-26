@@ -1,6 +1,13 @@
 <div class="right">
     <div class="top">
         <div class="msg">
+            <% if (data) { %>
+                <% Object.keys(data).forEach(function(e) { %>
+                    <div class="chat">
+                        <h3><%= data[e].msg %></h3>
+                    </div>
+                <% }) %>
+            <% } %>
         </div>
     </div>
     <div class="bottom">

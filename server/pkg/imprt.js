@@ -5,6 +5,10 @@ const Socket = require('./socket')
 const path = require('path')
 const http = require('http').Server(app);
 const io = require("socket.io")(http);
+const db = require('./db_connect')
+const {
+    nanoid
+} = require('nanoid')
 
 module.exports = {
     express,
@@ -13,5 +17,7 @@ module.exports = {
     Socket,
     path,
     http,
-    io
+    io,
+    db,
+    nanoid
 }
