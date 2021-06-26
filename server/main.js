@@ -34,7 +34,7 @@ imprt.app.get('/chat', async (req, res) => {
         console.log(result);
         res.render(server.page('chat'), {
             title: "Chat",
-            data: result 
+            data: result
         })
     })
 })
@@ -58,19 +58,28 @@ imprt.io.on('connection', (socket) => {
     socket.on('cht_msg', (msg) => {
         imprt.io.emit('cht_msg', msg);
 
-        let date1 = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }).split(',')[0].split('/')
-        let date2 = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }).split(',')[1].split(' ')[1]
+        let date1 = new Date().toLocaleString('en-US', {
+            timeZone: 'Asia/Jakarta'
+        }).split(',')[0].split('/')
+        let date2 = new Date().toLocaleString('en-US', {
+            timeZone: 'Asia/Jakarta'
+        }).split(',')[1].split(' ')[1]
         let date = `${date1[2]}-${date1[0]}-${date1[1]} ${date2}`
-        
+
         let vals = [
             [imprt.nanoid(10), msg, date]
         ]
 
-        imprt.db.query(("INSERT INTO test (id, msg, date) VALUES ?"), [vals], (err, res) => {
-            if (err) throw err;
+        if (msg === '!clear') {
+            imprt.db.query("TRUNCATE TABLE test")
+            imprt.io.emit('clear', 'clear')
+        } else {
+            imprt.db.query(("INSERT INTO test (id, msg, date) VALUES ?"), [vals], (err, res) => {
+                if (err) throw err;
 
-            console.log("Number of records inserted: " + res.affectedRows);
-        })
+                console.log("Number of records inserted: " + res.affectedRows);
+            })
+        }
     });
 });
 

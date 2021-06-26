@@ -12,3 +12,9 @@ socket.on('cht_msg', function (msg) {
     
     msg_box.append(element1)
 })
+
+socket.on('clear', function(msg) {
+    if (msg === 'clear') {
+        msg_box.innerHTML = ''
+    }
+})
