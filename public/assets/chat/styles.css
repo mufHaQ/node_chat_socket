@@ -85,6 +85,11 @@ body {
     overflow: auto;
 }
 
+.card .right .top .msg .chat {
+    max-width: 603px;
+    word-wrap: break-word;
+}
+
 /* Card Right Top MSG Chat */
 .card .right .top .msg .chat {
     margin: 5px;
